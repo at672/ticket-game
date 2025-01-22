@@ -5,6 +5,8 @@
 
 A probability-based level-up game simulator built with Flask and React. Players navigate through 50 levels using tickets, with strategy required to manage resources and maximize success probability.
 
+This project is deployed on Render on their free tier. Please allow up to three minutes for the process to start up, as Render will need to spool up the process on their backend.
+
 ## Summary
 
 Based on a fun mobile game (Idle Miner Tycoon) I have played in my spare time, the Ticket Game Simulator provides a framework for players to analyze their probability of winning the game as they navigate through 50 levels using a finite number of tickets as currency. The goal of the game is to reach level 50 without running out of tickets, which are needed to play the game. 
