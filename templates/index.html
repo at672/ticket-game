@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level Up Game</title>
+    <!-- Load React and ReactDOM for UI components -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    <!-- Load Tailwind for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Tippy.js for tooltips -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- Root div where React will mount our game interface -->
+    <div id="root"></div>
+    
+    <!-- Load our game logic -->
+    <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+</body>
+</html>
