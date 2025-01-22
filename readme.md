@@ -9,7 +9,7 @@ This project is deployed on Render on their free tier. Please allow up to three 
 
 ## Summary
 
-Based on a fun mobile game (Idle Miner Tycoon) I have played in my spare time, the Ticket Game Simulator provides a framework for players to analyze their probability of winning the game as they navigate through 50 levels using a finite number of tickets as currency. The goal of the game is to reach level 50 without running out of tickets, which are needed to play the game. 
+Based on a fun minigame within the mobile game Idle Miner Tycoon, the ticket game simulator provides a framework for players to analyze their probability of winning the minigame as they navigate through 50 levels using a finite number of tickets as currency. The goal of the game is to reach level 50 without running out of tickets, which are needed to play the game. 
 
 Levels are either safe, or non-safe. Each non-safe level presents a 75% chance of success and a 25% chance of failure, simulated through a simple box-selection mechanic where one of four boxes leads to failure. While failing a level does not reset progress, continuing after a failure requires spending additional tickets. The ticket cost for failures follows a strategic scaling system - the first failure is free, but subsequent failures become increasingly expensive, following a cost pattern of 0, 1, 2, 4, 8, and 10 tickets. The game incorporates safe levels at every multiple of 5 (levels 5, 10, 15, etc.) where success is guaranteed, providing strategic checkpoints for players. 
 
