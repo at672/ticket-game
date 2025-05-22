@@ -14,10 +14,43 @@
     <script src="https://unpkg.com/tippy.js@6"></script>
 </head>
 <body class="bg-gray-100">
+    <!-- Header Section -->
+    <div class="bg-blue-600 text-white py-6 mb-6">
+        <div class="max-w-4xl mx-auto px-4">
+            <h1 class="text-4xl font-bold text-center mb-2">Ticket Game Simulator</h1>
+            <p class="text-xl text-center text-blue-100">Strategic Level Progression Game</p>
+        </div>
+    </div>
     <!-- Root div where React will mount our game interface -->
     <div id="root"></div>
     
     <!-- Load our game logic -->
     <script src="/static/js/game.js"></script>
+    
+    <!-- Game Information Section -->
+    <div class="max-w-4xl mx-auto px-4 mb-6">
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+            <h2 class="text-2xl font-semibold mb-4 text-gray-800">How to Play</h2>
+            <div class="space-y-3 text-gray-700">
+                <p>Navigate through 50 levels using tickets as currency. Your goal is to reach level 50 without running out of tickets.</p>
+                
+                <p><strong>Game Mechanics:</strong></p>
+                <ul class="list-disc list-inside ml-4 space-y-1">
+                    <li>Each level has a 75% chance of success and 25% chance of failure (except safe levels)</li>
+                    <li>Safe levels occur every 5 levels (5, 10, 15, etc.) with guaranteed success</li>
+                    <li>Failing a level doesn't reset progress, but continuing costs additional tickets</li>
+                    <li>Failure costs increase: 1st failure free, then 1, 2, 4, 8, 10+ tickets</li>
+                    <li>Express tickets allow starting at level 20, reducing total risk</li>
+                </ul>
+                
+                <div class="bg-green-50 border-l-4 border-green-500 p-4 mt-4">
+                    <p class="font-medium text-green-800">Success Rate Information:</p>
+                    <p class="text-green-700">• <strong>367 tickets</strong> are needed for 100% success rate (reaching level 50)</p>
+                    <p class="text-green-700">• <strong>206 tickets</strong> are needed for 100% success rate with an express ticket start</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
