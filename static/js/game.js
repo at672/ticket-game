@@ -22,6 +22,7 @@ function GameInterface() {
         initialTickets: 0,
         remainingTickets: 0,
         expressTickets: 0,
+        initialExpressTickets: 0,
         isExpressStart: false,
         currentProbability: 0,
         restartProbability: 0,
@@ -85,6 +86,10 @@ function GameInterface() {
                 [type === 'regular' ? 'initialTickets' : 'expressTickets']: numValue
             };
             
+            if (type === 'express') {
+                newState.initialExpressTickets = numValue;
+            }
+
             // Show start options if we have both types of tickets
             newState.showStartOptions = (type === 'regular' ? numValue : prev.initialTickets) > 0 && 
                                       (type === 'express' ? numValue : prev.expressTickets) > 0;
@@ -186,7 +191,7 @@ function GameInterface() {
             currentLevel: 1,
             totalFailures: 0,
             remainingTickets: 0,
-            expressTickets: 0,
+            expressTickets: prev.initialExpressTickets,  // Instead of 0
             showFailurePrompt: false,
             isExpressStart: false,
             hasFailedCurrentLevel: false,  // Reset failure state
@@ -247,28 +252,27 @@ function GameInterface() {
                         className: 'w-full p-2 border rounded'
                     })
                 ),
-                // Start Game Buttons
-                gameState.showStartOptions ? 
-                    React.createElement('div', { className: 'space-y-2' },
-                        React.createElement('button', {
-                            onClick: () => handleStartGame(false),
-                            className: 'w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600'
-                        }, 'Regular Start (1 ticket)'),
-                        React.createElement('button', {
-                            onClick: () => handleStartGame(true),
-                            disabled: gameState.expressTickets <= 0,
-                            className: `w-full p-2 rounded ${
-                                gameState.expressTickets > 0 
-                                    ? 'bg-green-500 text-white hover:bg-green-600' 
-                                    : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                            }`
-                        }, `Express Start (Level ${EXPRESS_START_LEVEL})`)  // Updated text to use constant
-                    )
-                    : React.createElement('button', {
+                // Start Game Buttons - Always show both options
+                React.createElement('div', { className: 'space-y-2' },
+                    React.createElement('button', {
                         onClick: () => handleStartGame(false),
                         disabled: gameState.initialTickets <= 0,
-                        className: 'w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 disabled:bg-gray-300'
-                    }, 'Start Game')
+                        className: `w-full p-2 rounded ${
+                            gameState.initialTickets > 0 
+                                ? 'bg-blue-500 text-white hover:bg-blue-600' 
+                                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                        }`
+                    }, 'Regular Start (1 ticket)'),
+                    React.createElement('button', {
+                        onClick: () => handleStartGame(true),
+                        disabled: gameState.expressTickets <= 0,
+                        className: `w-full p-2 rounded ${
+                            gameState.expressTickets > 0 
+                                ? 'bg-green-500 text-white hover:bg-green-600' 
+                                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                        }`
+                    }, `Express Start (Level ${EXPRESS_START_LEVEL})`)
+                )
             )
         ) : (
             // Active Game Screen
