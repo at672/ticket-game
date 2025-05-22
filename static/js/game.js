@@ -215,7 +215,8 @@ function GameInterface() {
 
     // Render game interface
     // Change the className variable to only have padding, p-4, so that it inherits width from the parent div class in html file
-    // Or explicitly set parameters here, to keep it consistent. Lots of style decision to choose from
+    // Or explicitly set parameters here, to keep it consistent. Lots of style decision to choose for
+    // return React.createElement('div', { className: 'p-4 max-w-2xl mx-auto' },
     return React.createElement('div', { className: 'max-w-4xl mx-auto px-4 mb-6' },
         !gameState.isStarted ? (
             // Game Start Screen
