@@ -1,0 +1,3 @@
+pip install pip-tools
+pip-compile requirements.in   # generates requirements.txt with all pins resolved
+pip-sync requirements.txt     # installs exactly what's in the lockfile
