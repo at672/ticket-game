@@ -280,42 +280,51 @@ function GameInterface() {
                 // Game Status Card
                 React.createElement('div', { className: 'bg-white p-6 rounded-lg shadow' },
                     React.createElement('div', { className: 'grid grid-cols-2 gap-4' },
-                        // Level Display
-                        React.createElement('div', null,
+                        // Row 1 Left - Current Level
+                        React.createElement('div', { style: { gridColumn: 1, gridRow: 1 } },
                             React.createElement('p', { className: 'font-medium' }, 'Current Level:'),
                             React.createElement('p', { className: 'text-2xl' }, gameState.currentLevel)
                         ),
-                        // Tickets Display
-                        React.createElement('div', null,
+                        // Row 1 Right - Remaining Tickets
+                        React.createElement('div', { style: { gridColumn: 2, gridRow: 1 } },
                             React.createElement('p', { className: 'font-medium' }, 'Remaining Tickets:'),
                             React.createElement('p', { className: 'text-2xl' }, gameState.remainingTickets)
                         ),
-                        // Failures Display
-                        React.createElement('div', null,
+                        // Row 2 Left - Total Failures
+                        React.createElement('div', { style: { gridColumn: 1, gridRow: 2 } },
                             React.createElement('p', { className: 'font-medium' }, 'Total Failures:'),
                             React.createElement('p', { className: 'text-2xl' }, gameState.totalFailures)
                         ),
-                        // Success Probability Display
-                        React.createElement('div', null,
+                        // Row 2 Right - Success Probability
+                        React.createElement('div', { style: { gridColumn: 2, gridRow: 2 } },
                             React.createElement('p', { className: 'font-medium' }, 'Success Probability:'),
                             React.createElement('p', { className: 'text-2xl' }, 
                                 formatProbability(gameState.currentProbability)
                             )
                         ),
-                        // Expected Additional Cost Display
-                        React.createElement('div', { className: 'col-span-2' },
+                        // Row 3 Left - Expected Additional Ticket Cost
+                        React.createElement('div', { style: { gridColumn: 1, gridRow: 3 } },
                             React.createElement('p', { className: 'font-medium' }, 'Expected Additional Ticket Cost:'),
                             React.createElement('p', { className: 'text-2xl' }, 
                                 gameState.expectedAdditionalCost.toFixed(2)
                             )
                         ),
-                        React.createElement('div', { className: 'col-span-2' },
-                            React.createElement('p', { className: 'font-medium' }, 
-                                'Maximum Failures Covered:'
-                            ),
+                        // Row 3 Right - Restart Probability
+                        React.createElement('div', { style: { gridColumn: 2, gridRow: 3 } },
+                            React.createElement('p', { className: 'font-medium' }, 'Restart Probability:'),
                             React.createElement('p', { className: 'text-2xl' }, 
-                                gameState.maxFailuresCovered
+                                formatProbability(gameState.restartProbability)
                             )
+                        ),
+                        // Row 4 Left - Maximum Failures Covered
+                        React.createElement('div', { style: { gridColumn: 1, gridRow: 4 } },
+                            React.createElement('p', { className: 'font-medium' }, 'Maximum Failures Covered:'),
+                            React.createElement('p', { className: 'text-2xl' }, gameState.maxFailuresCovered)
+                        ),
+                        // Row 4 Right - Restart Maximum Failures Covered (placeholder)
+                        React.createElement('div', { style: { gridColumn: 2, gridRow: 4 } },
+                            React.createElement('p', { className: 'font-medium' }, 'Restart Max Failures Covered:'),
+                            React.createElement('p', { className: 'text-2xl' }, '—')
                         )
                     )
                 ),
