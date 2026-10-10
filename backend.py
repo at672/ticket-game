@@ -129,7 +129,9 @@ def calculate():
         expected_cost = calculate_expected_additional_cost(risky_trials, total_failures)
         
         # For restart probability calculations...
-        start_level = EXPRESS_START_LEVEL if is_express_start else 1
+        # A restart always assumes a regular start (level 1, costing 1 regular ticket),
+        # regardless of how the current game was started.
+        start_level = 1
         total_risky_trials = sum(1 for level in range(start_level, MAX_LEVEL + 1) 
                                 if level % 5 != 0)
         restart_max_failures = 0
@@ -142,7 +144,8 @@ def calculate():
             "restart_probability": float(restart_prob),
             "is_safe_level": (current_level % 5 == 0),
             "next_failure_cost": COST_ARRAY[min(total_failures, len(COST_ARRAY) - 1)],
-            "expected_additional_cost": float(expected_cost)
+            "expected_additional_cost": float(expected_cost),
+            "restart_max_failures_covered": restart_max_failures
         }
         
         print(f"Sending response: {response}")
