@@ -142,7 +142,8 @@ def calculate():
             "restart_probability": float(restart_prob),
             "is_safe_level": (current_level % 5 == 0),
             "next_failure_cost": COST_ARRAY[min(total_failures, len(COST_ARRAY) - 1)],
-            "expected_additional_cost": float(expected_cost)
+            "expected_additional_cost": float(expected_cost),
+            "restart_max_failures_covered": restart_max_failures
         }
         
         print(f"Sending response: {response}")

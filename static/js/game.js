@@ -68,6 +68,7 @@ function GameInterface() {
                     expectedAdditionalCost: data.expected_additional_cost,
                     isSafeLevel: data.is_safe_level,
                     nextFailureCost: data.next_failure_cost,
+                    restartMaxFailuresCovered: data.restart_max_failures_covered,
                 }));
             } catch (error) {
                 console.error('Failed to fetch probabilities:', error);
@@ -324,7 +325,7 @@ function GameInterface() {
                         // Row 4 Right - Restart Maximum Failures Covered (placeholder)
                         React.createElement('div', { style: { gridColumn: 2, gridRow: 4 } },
                             React.createElement('p', { className: 'font-medium' }, 'Restart Max Failures Covered:'),
-                            React.createElement('p', { className: 'text-2xl' }, '—')
+                            React.createElement('p', { className: 'text-2xl' }, gameState.restartMaxFailuresCovered)
                         )
                     )
                 ),
