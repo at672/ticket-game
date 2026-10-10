@@ -273,6 +273,10 @@ function GameInterface() {
                                 : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                         }`
                     }, `Express Start (Level ${EXPRESS_START_LEVEL})`)
+                ),
+                // Restart assumption note
+                React.createElement('p', { className: 'mt-4 text-sm text-gray-600' },
+                    'Note: The restart probability shown during a game always assumes a regular start (level 1, costing 1 regular ticket), even if the current game used an express ticket.'
                 )
             )
         ) : (
